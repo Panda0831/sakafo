@@ -1,0 +1,55 @@
+import type { Region } from '@/types';
+
+const base = (
+  id: string,
+  nom: string,
+  cheflieu: string,
+  lat: number,
+  lon: number,
+  zone: Region['zoneIllustrative'],
+  produitsLocaux: string[],
+  description: string,
+): Region => ({
+  id: `reg-${id}`,
+  slug: id,
+  nom,
+  cheflieu,
+  zoneIllustrative: zone,
+  lat,
+  lon,
+  produitsLocaux,
+  platIds: [],
+  ingredientIds: [],
+  recetteIds: [],
+  articleIds: [],
+  description,
+  statutDonnees: 'partiel',
+});
+
+const doc = 'Informations en cours de rédaction. Chef-lieu, coordonnées et zone sont indicatifs et à vérifier avant publication.';
+
+export const regions = [
+  base('analamanga', 'Analamanga', 'Antananarivo', -18.91, 47.52, 'Hauts Plateaux', [], `Région des Hauts Plateaux autour d’Antananarivo. ${doc}`),
+  base('vakinankaratra', 'Vakinankaratra', 'Antsirabe', -19.87, 47.03, 'Hauts Plateaux', [], `Hauts Plateaux autour d’Antsirabe. ${doc}`),
+  base('itasy', 'Itasy', 'Miarinarivo', -18.96, 46.9, 'Hauts Plateaux', [], `Hauts Plateaux. ${doc}`),
+  base('bongolava', 'Bongolava', 'Tsiroanomandidy', -18.77, 46.04, 'Hauts Plateaux', [], `Hauts Plateaux. ${doc}`),
+  base('haute-matsiatra', 'Haute Matsiatra', 'Fianarantsoa', -21.45, 47.09, 'Hauts Plateaux', ['thé', 'vin'], 'Hauts Plateaux autour de Fianarantsoa. Thé et vin sont des associations largement citées, à vérifier avant publication. Localisation illustrative.'),
+  base('amoron-i-mania', "Amoron'i Mania", 'Ambositra', -20.53, 47.25, 'Hauts Plateaux', [], `Hauts Plateaux. ${doc}`),
+  base('alaotra-mangoro', 'Alaotra-Mangoro', 'Ambatondrazaka', -17.83, 48.42, 'Est', ['riz'], 'Souvent associée à la riziculture du lac Alaotra. Association indicative, à vérifier. Localisation illustrative.'),
+  base('atsinanana', 'Atsinanana', 'Toamasina', -18.15, 49.41, 'Est', ['litchi'], 'Côte est autour de Toamasina. Le litchi est souvent cité pour la saison de fin d’année, à vérifier. Localisation illustrative.'),
+  base('analanjirofo', 'Analanjirofo', 'Fenoarivo Atsinanana', -17.38, 49.42, 'Est', ['girofle', 'vanille'], 'Côte est. Girofle et vanille sont des associations largement citées, à vérifier. Localisation illustrative.'),
+  base('sava', 'SAVA', 'Sambava', -14.27, 50.17, 'Nord-Est', ['vanille'], 'Nord-est. La vanille est largement associée à cette région, à vérifier. Localisation illustrative.'),
+  base('diana', 'DIANA', 'Antsiranana', -12.28, 49.29, 'Nord', ['fruits de mer', 'ylang-ylang'], 'Nord, dont Nosy Be souvent citée pour l’ylang-ylang et les fruits de mer. Associations indicatives. Localisation illustrative.'),
+  base('sofia', 'Sofia', 'Antsohihy', -14.87, 47.99, 'Nord-Ouest', [], `Nord-Ouest. ${doc}`),
+  base('boeny', 'Boeny', 'Mahajanga', -15.72, 46.32, 'Nord-Ouest', ['fruits de mer'], 'Nord-ouest littoral autour de Mahajanga. Fruits de mer souvent cités, à vérifier. Localisation illustrative.'),
+  base('betsiboka', 'Betsiboka', 'Maevatanana', -16.95, 46.83, 'Nord-Ouest', [], `Nord-Ouest. ${doc}`),
+  base('melaky', 'Melaky', 'Maintirano', -18.06, 44.02, 'Ouest', [], `Ouest. ${doc}`),
+  base('menabe', 'Menabe', 'Morondava', -20.28, 44.32, 'Ouest', [], `Ouest littoral. ${doc}`),
+  base('atsimo-andrefana', 'Atsimo-Andrefana', 'Toliara', -23.35, 43.67, 'Sud-Ouest', ['fruits de mer'], 'Sud-ouest autour de Toliara. Fruits de mer souvent cités, à vérifier. Localisation illustrative.'),
+  base('ihorombe', 'Ihorombe', 'Ihosy', -22.4, 46.12, 'Sud', [], `Sud. ${doc}`),
+  base('anosy', 'Anosy', 'Tolagnaro', -25.03, 46.98, 'Sud-Est', [], `Sud-Est. ${doc}`),
+  base('androy', 'Androy', 'Ambovombe', -25.17, 46.09, 'Sud', [], `Sud. ${doc}`),
+  base('atsimo-atsinanana', 'Atsimo-Atsinanana', 'Farafangana', -22.82, 47.83, 'Sud-Est', [], `Sud-Est. ${doc}`),
+  base('vatovavy', 'Vatovavy', 'Mananjary', -21.23, 48.34, 'Sud-Est', [], `Sud-Est. ${doc}`),
+  base('fitovinany', 'Fitovinany', 'Manakara', -22.15, 48.02, 'Sud-Est', [], `Sud-Est. ${doc}`),
+] satisfies Region[];
